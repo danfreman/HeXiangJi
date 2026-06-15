@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>He Xiang Ji | Premium He Xiang Zhu</title>
+    <!-- Google Fonts for Editorial Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Lucide Icons Development Script -->
+    <script src="https://cdn.jsdelivr.net/npm/lucide@0.344.0/dist/umd/lucide.min.js"></script>
+    
+    <style>
+        :root {
+            --primary: #721c24;       /* Heritage Crimson */
+            --primary-dark: #491217;  /* Deep Burgundy */
+            --accent: #c5a059;        /* Muted Gold */
+            --surface-bg: #fdfdfd;    /* Gallery White */
+            --surface-card: #ffffff;
+            --text-main: #1e2022;     /* Charcoal Onyx */
+            --text-muted: #676e73;
+            --border-color: #e9ecef;
+            --radius-sm: 6px;
+            --radius-md: 12px;
+            --radius-lg: 20px;
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+            --shadow-md: 0 12px 34px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--surface-bg);
+            color: var(--text-main);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        /* --- Global Layout Containers --- */
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* --- Header / Navigation --- */
+        .navbar {
+            background-color: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 900;
+            transition: var(--transition);
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .brand {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .brand-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--primary);
+            letter-spacing: 1.5px;
+            line-height: 1.2;
+        }
+
+        .brand-sub {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--text-muted);
+            margin-top: 2px;
+        }
+
+        .domain-tag {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--accent);
+            border: 1px solid var(--accent);
+            padding: 0.35rem 1rem;
+            border-radius: var(--radius-lg);
+            background: rgba(197, 160, 89, 0.05);
+        }
+
+        /* --- Immersive Hero Section --- */
+        .hero {
+            position: relative;
+            background: linear-gradient(135deg, #18191b 0%, #321417 100%);
+            color: #ffffff;
+            padding: 8rem 0 9rem 0;
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 120px;
+            background: linear-gradient(to top, var(--surface-bg), transparent);
+        }
+
+        .hero-content {
+            max-width: 700px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .hero-tagline {
+            color: var(--accent);
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 4px;
+            font-size: 0.85rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .hero h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.15;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            color: #ced4da;
+            line-height: 1.6;
+            font-weight: 300;
+        }
+
+        /* --- Main Storefront Architecture --- */
+        .store-grid {
+            display: grid;
+            grid-template-columns: 1fr 420px;
+            gap: 3.5rem;
+            margin-top: -3rem;
+            position: relative;
+            z-index: 20;
+            margin-bottom: 6rem;
+        }
+
+        @media (max-width: 1024px) {
+            .store-grid {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+                margin-top: 0;
+                padding-top: 2rem;
+            }
+        }
+
+        .section-header h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.8rem;
+            color: var(--primary-dark);
+            margin-bottom: 2rem;
+            position: relative;
+            padding-bottom: 0.75rem;
+        }
+
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background-color: var(--accent);
+        }
+
+        /* --- Product Component Cards --- */
+        .product-catalog {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .product-card {
+            background: var(--surface-card);
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border-color);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-md);
+            border-color: rgba(197, 160, 89, 0.4);
+        }
+
+        .product-media {
+            height: 260px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent);
+            border-bottom: 1px solid var(--border-color);
+            position: relative;
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            background: var(--primary);
+            color: white;
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 0.3rem 0.8rem;
+            border-radius: var(--radius-sm);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .product-body {
+            padding: 1.75rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .product-title { Title: Signature Reserve Gift Suite (何香珠 — 典藏礼盒)
+​Description:
+An artisanal collection curated for the true connoisseur. The Signature Reserve features our highest grade of hand-finished He Xiang Zhu, selected for its exceptional oil density and deep, complex aromatic structure. Housed in a bespoke, elegant presentation case, this suite is designed to be the ultimate expression of respect and tradition—making it an incomparable gift for treasured friends, family, or corporate associates.
+​Key Details:
+​Aroma Profile: Deep, resinous, rich, and multi-layered; intensifies with body warmth.
+​Presentation: Exquisite, collector's grade rigid gift box with heritage embossing.
+​Best For: Premium gifting, formal occasions, and advanced collection.
+            font-family: 'Cinzel', serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 0.5rem;
+        }
+
+        .product-desc {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .product-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: auto;
+        }
+
+        .product-price {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        /* --- Premium Quantity Selector --- */
+        .quantity-controller {
+            display: flex;
+            align-items: center;
+            border: 1px solid #ced4da;
+            border-radius: var(--radius-sm);
+            background: #fff;
+            overflow: hidden;
+        }
+
+        .qty-action {
+            background: none;
+            border: none;
+            width: 36px;
+            height: 36px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-main);
+            transition: var(--transition);
+        }
+
+        .qty-action:hover {
+            background-color: var(--border-color);
+            color: var(--primary);
+        }
+
+        .qty-display {
+            width: 40px;
+            text-align: center;
+            border: none;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-main);
+            outline: none;
+        }
+
+        /* --- Corporate Sidebar Cart --- */
+        .cart-sidebar {
+            background: var(--surface-card);
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border-color);
+            padding: 2.25rem;
+            box-shadow: var(--shadow-sm);
+            height: fit-content;
+            position: sticky;
+            top: 120px;
+        }
+
+        .cart-empty-state {
+            text-align: center;
+            padding: 3rem 0;
+            color: var(--text-muted);
+        }
+
+        .cart-empty-state p {
+            margin-top: 0.75rem;
+            font-size: 0.95rem;
+        }
+
+        .cart-item-node {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.25rem 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .cart-item-info h4 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .cart-item-info span {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .cart-item-pricing {
+            font-weight: 600;
+            font-size: 1rem;
+            color: var(--text-main);
+        }
+
+        .summary-totals {
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.75rem;
+            font-size: 0.95rem;
+            color: var(--text-muted);
+        }
+
+        .summary-row.grand-total {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-top: 0.5rem;
+            border-top: 1px solid var(--border-color);
+            padding-top: 1rem;
+        }
+
+        .btn-prime {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            width: 100%;
+            padding: 1.1rem;
+            border-radius: var(--radius-sm);
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            transition: var(--transition);
+            box-shadow: 0 4px 12px rgba(114, 28, 36, 0.25);
+        }
+
+        .btn-prime:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(114, 28, 36, 0.35);
+        }
+
+        .btn-prime:disabled {
+            background-color: #ced4da;
+            box-shadow: none;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* --- Micro-Modal / Checkout Drawer --- */
+        .drawer-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(26, 27, 29, 0.6);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .drawer-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .drawer-sheet {
+            background: var(--surface-card);
+            padding: 3rem;
+            border-radius: var(--radius-lg);
+            max-width: 560px;
+            width: 100%;
+            box-shadow: var(--shadow-md);
+            position: relative;
+            transform: translateY(20px);
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .drawer-overlay.active .drawer-sheet {
+            transform: translateY(0);
+        }
+
+        .drawer-close {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            background: var(--border-color);
+            border: none;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-main);
+            transition: var(--transition);
+        }
+
+        .drawer-close:hover {
+            background: #e2e6ea;
+        }
+
+        .payment-matrix {
+            margin: 2rem 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .matrix-option {
+            border: 2px solid var(--border-color);
+            border-radius: var(--radius-md);
+            padding: 1.25rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            cursor: pointer;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .matrix-option:hover {
+            border-color: var(--accent);
+            background: rgba(197, 160, 89, 0.02);
+        }
+
+        .matrix-option input[type="radio"] {
+            position: absolute;
+            top: 1.25rem;
+            right: 1.25rem;
+            accent-color: var(--primary);
+            width: 18px;
+            height: 18px;
+        }
+
+        .matrix-option.selected {
+            border-color: var(--primary);
+            background: rgba(114, 28, 36, 0.01);
+        }
+
+        .matrix-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        .matrix-caption {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            line-height: 1.4;
+        }
+
+        /* Dynamic Payment Panel Sections */
+        .panel-payload {
+            background: #f8f9fa;
+            border-radius: var(--radius-md);
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            display: none;
+            border: 1px dashed var(--border-color);
+        }
+
+        .form-cluster {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+        }
+
+        .input-premium {
+            width: 100%;
+            padding: 0.85rem 1rem;
+            border: 1px solid #ced4da;
+            border-radius: var(--radius-sm);
+            font-size: 0.95rem;
+            font-family: inherit;
+            transition: var(--transition);
+            outline: none;
+        }
+
+        .input-premium:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(114, 28, 36, 0.1);
+        }
+
+        /* --- Footer Section --- */
+        .footer {
+            background: #111212;
+            color: #9da4a9;
+            padding: 4rem 0;
+            border-top: 1px solid #222528;
+            font-size: 0.9rem;
+        }
+
+        .footer-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        @media (max-width: 768px) {
+            .footer-wrapper {
+                flex-direction: column;
+                gap: 1.5rem;
+                text-align: center;
+            }
+        }
+
+        .footer-brand {
+            font-family: 'Cinzel', serif;
+            color: #ffffff;
+            font-size: 1.2rem;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar Component -->
+    <nav class="navbar">
+        <div class="container nav-wrapper">
+            <div class="brand">
+                <span class="brand-title">合香集</span>
+                <span class="brand-sub">He Xiang Ji</span>
+            </div>
+            <div class="domain-tag">hexiangji.com</div>
+        </div>
+    </nav>
+
+    <!-- Hero / Brand Billboard -->
+    <header class="hero">
+        <div class="container hero-content">
+            <span class="hero-tagline">Singapore's Premier Heritage Store</span>
+            <h1>The Art of Premium He Xiang Zhu</h1>
+            <p>Sourced responsibly, handled with precision, and delivered securely using local enterprise standard execution framework.</p>
+        </div>
+    </header>
+
+    <!-- Main Content Architecture -->
+    <main class="container store-grid">
+        
+        <!-- Products Column Layout -->
+        <section>
+            <div class="section-header">
+                <h2>Our Curated Selections</h2>
+            </div>
+            
+            <div class="product-catalog">
+                <!-- Product SKU 1 -->
+                <article class="product-card">
+                    <div class="product-media">
+                        <i data-lucide="package-open" size="56"></i>
+                    </div>
+                    <div class="product-body">
+                        <h3 class="product-title">Classic He Xiang Zhu</h3>
+                        <p class="product-desc">Carefully calibrated formulation engineered for daily excellence. Delivers authentic aroma structural balance.</p>
+                        <div class="product-footer">
+                            <span class="product-price">S$ 12.80</span>
+                            <div class="quantity-controller">
+                                <button class="qty-action" type="button" aria-label="Decrease quantity" onclick="mutateQuantity('sku_classic', -1)">
+                                    <i data-lucide="minus" size="16"></i>
+                                </button>
+                                <input type="text" id="sku_classic-value" class="qty-display" value="0" readonly>
+                                <button class="qty-action" type="button" aria-label="Increase quantity" onclick="mutateQuantity('sku_classic', 1)">
+                                    <i data-lucide="plus" size="16"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Product SKU 2 -->
+                <article class="product-card">
+                    <div class="product-media">
+                        <span class="product-badge">Exclusive</span>
+                        <i data-lucide="award" size="56"></i>
+                    </div>
+                    <div class="product-body">
+                        <h3 class="product-title">Signature Reserve Gift Suite</h3>
+                        <p class="product-desc">An artisanal collection of premium-grade He Xiang Zhu enclosed inside a bespoke collector's presentation case.</p>
+                        <div class="product-footer">
+                            <span class="product-price">S$ 28.00</span>
+                            <div class="quantity-controller">
+                                <button class="qty-action" type="button" aria-label="Decrease quantity" onclick="mutateQuantity('sku_reserve', -1)">
+                                    <i data-lucide="minus" size="16"></i>
+                                </button>
+                                <input type="text" id="sku_reserve-value" class="qty-display" value="0" readonly>
+                                <button class="qty-action" type="button" aria-label="Increase quantity" onclick="mutateQuantity('sku_reserve', 1)">
+                                    <i data-lucide="plus" size="16"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Sidebar Checkout Desk Component -->
+        <aside>
+            <div class="cart-sidebar">
+                <h3 style="font-family: 'Cinzel', serif; font-size: 1.3rem; margin-bottom: 1.5rem; color: var(--primary-dark);">Review Order</h3>
+                
+                <div id="cart-node-anchor">
+                    <div class="cart-empty-state">
+                        <i data-lucide="shopping-bag" size="32" style="color: var(--text-muted); stroke-width: 1.5;"></i>
+                        <p>No selections added to your desk.</p>
+                    </div>
+                </div>
+
+                <div class="summary-totals">
+                    <div class="summary-row">
+                        <span>Subtotal</span>
+                        <span id="calc-subtotal">S$ 0.00</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Local Delivery (SG)</span>
+                        <span id="calc-shipping" style="color: #28a745; font-weight: 600;">Complimentary</span>
+                    </div>
+                    <div class="summary-row grand-total">
+                        <span>Total Due</span>
+                        <span id="calc-grand">S$ 0.00</span>
+                    </div>
+                </div>
+
+                <button type="button" id="gate-trigger" class="btn-prime" style="margin-top: 1.75rem;" disabled onclick="deployGate()">
+                    <span>Proceed to Secure Gateway</span>
+                    <i data-lucide="shield-check" size="18"></i>
+                </button>
+            </div>
+        </aside>
+    </main>
+
+    <!-- Secure Gate Drawer UI Layer -->
+    <div class="drawer-overlay" id="checkout-gateway-modal">
+        <div class="drawer-sheet">
+            <button class="drawer-close" type="button" onclick="retractGate()">&times;</button>
+            
+            <h3 style="font-family: 'Cinzel', serif; font-size: 1.6rem; color: var(--primary-dark); margin-bottom: 0.25rem;">Secure Checkout Terminal</h3>
+            <p style="font-size: 0.9rem; color: var(--text-muted);">Transactional verification provided via encrypted protocols.</p>
+            
+            <div style="margin-top: 1.5rem; background: #f8f9fa; padding: 1rem 1.25rem; border-radius: var(--radius-sm); display: flex; justify-content: space-between; align-items: center;">
+                <span style="font-size: 0.9rem; font-weight: 500;">Aggregated Payable Remittance:</span>
+                <span id="gateway-total-display" style="font-size: 1.25rem; font-weight: 700; color: var(--primary);">S$ 0.00</span>
+            </div>
+
+            <!-- Segmented Payment Selection Architecture -->
+            <div class="payment-matrix">
+                <div class="matrix-option" id="opt-paynow" onclick="switchTerminalSegment('paynow')">
+                    <input type="radio" name="payment_node" id="radio-paynow">
+                    <span class="matrix-title">PayNow QR</span>
+                    <span class="matrix-caption">SG Liquidity Network. Instant verification node.</span>
+                </div>
+                <div class="matrix-option" id="opt-card" onclick="switchTerminalSegment('card')">
+                    <input type="radio" name="payment_node" id="radio-card">
+                    <span class="matrix-title">Credit / Debit</span>
+                    <span class="matrix-caption">SG Registered Visa & Mastercard channels.</span>
+                </div>
+            </div>
+
+            <!-- PayNow Panel State Block -->
+            <div id="panel-paynow" class="panel-payload" style="text-align: center;">
+                <p style="font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: #7B1FA2; margin-bottom: 1rem;">SG QR Payment Gateway Core</p>
+                <div style="background: #ffffff; width: 200px; height: 200px; margin: 0 auto; border: 1px solid var(--border-color); border-radius: var(--radius-md); display: flex; flex-direction: column; align-items: center; justify-content: center; font-weight: 600; font-size: 0.8rem; color: var(--text-muted); gap: 0.5rem;">
+                    <i data-lucide="qr-code" size="48" style="color: #7B1FA2;"></i>
+                    [ SECURE PAYNOW QR ]
+                </div>
+                <button type="button" class="btn-prime" style="margin-top: 1.5rem; background: #7B1FA2; box-shadow: 0 4px 12px rgba(123, 31, 162, 0.25);" onclick="executeMockFinalize()">Verify Payment Completion</button>
+            </div>
+
+            <!-- Card Processing Panel State Block -->
+            <div id="panel-card" class="panel-payload">
+                <div class="form-cluster">
+                    <input type="text" class="input-premium" placeholder="Cardholder Identification Name" autocomplete="cc-name">
+                    <input type="text" class="input-premium" placeholder="Primary Account Number (Visa / Mastercard)" maxlength="19" autocomplete="cc-number">
+                    <div style="display: flex; gap: 1rem;">
+                        <input type="text" class="input-premium" placeholder="Expiry (MM/YY)" maxlength="5" autocomplete="cc-exp">
+                        <input type="password" class="input-premium" placeholder="Card Verification Value (CVV)" maxlength="3" autocomplete="cc-csc">
+                    </div>
+                </div>
+                <button type="button" class="btn-prime" style="margin-top: 1.5rem;" onclick="executeMockFinalize()">Authorize Transaction</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Corporate Footer Element -->
+    <footer class="footer">
+        <div class="container footer-wrapper">
+            <div class="footer-brand">何香記 HE XIANG JI</div>
+            <div>&copy; 2026 He Xiang Ji. All Enterprise Rights Reserved. Built on hexiangji.com</div>
+        </div>
+    </footer>
+
+    <!-- State Logic Controller Execution Script -->
+    <script>
+        // Initialize Vector Graph Context Layers
+        lucide.createIcons();
+
+        // High Integrity Central Storage Entity
+        const SKU_MANIFEST = {
+            sku_classic: { name: 'Classic He Xiang Zhu', price: 12.80, quantity: 0 },
+            sku_reserve: { name: 'Signature Reserve Gift Suite', price: 28.00, quantity: 0 }
+        };
+
+        function mutateQuantity(skuCode, variant) {
+            const node = SKU_MANIFEST[skuCode];
+            if (!node) return;
+
+            node.quantity = Math.max(0, node.quantity + variant);
+            document.getElementById(${skuCode}-value).value = node.quantity;
+            recompileInvoice();
+        }
+
+        function recompileInvoice() {
+            let runningSum = 0;
+            let allocationCollectionHtml = '';
+            let payloadState = false;
+
+            for (const selector in SKU_MANIFEST) {
+                const element = SKU_MANIFEST[selector];
+                if (element.quantity > 0) {
+                    payloadState = true;
+                    const aggregateSkuPrice = element.price * element.quantity;
+                    runningSum += aggregateSkuPrice;
+                    
+                    allocationCollectionHtml += `
+                        <div class="cart-item-node">
+                            <div class="cart-item-info">
+                                <h4>${element.name}</h4>
+                                <span>S$ ${element.price.toFixed(2)} &times; ${element.quantity}</span>
+                            </div>
+                            <div class="cart-item-pricing">S$ ${aggregateSkuPrice.toFixed(2)}</div>
+                        </div>
+                    `;
+                }
+            }
+
+            const DOM_anchor = document.getElementById('cart-node-anchor');
+            const DOM_trigger = document.getElementById('gate-trigger');
+
+            if (payloadState) {
+                DOM_anchor.innerHTML = allocationCollectionHtml;
+                DOM_trigger.disabled = false;
+            } else {
+                DOM_anchor.innerHTML = `
+                    <div class="cart-empty-state">
+                        <i data-lucide="shopping-bag" size="32" style="color: var(--text-muted); stroke-width: 1.5;"></i>
+                        <p>No selections added to your desk.</p>
+                    </div>
+                `;
+                lucide.createIcons();
+                DOM_trigger.disabled = true;
+            }
+
+            const localizedTotalStr = S$ ${runningSum.toFixed(2)};
+            document.getElementById('calc-subtotal').innerText = localizedTotalStr;
+            document.getElementById('calc-grand').innerText = localizedTotalStr;
+            document.getElementById('gateway-total-display').innerText = localizedTotalStr;
+        }
+
+        function deployGate() {
+            document.getElementById('checkout-gateway-modal').classList.add('active');
+        }
+
+        function retractGate() {
+            document.getElementById('checkout-gateway-modal').classList.remove('active');
+            
+            // Revert state variables to base default values safely
+            document.getElementById('panel-paynow').style.display = 'none';
+            document.getElementById('panel-card').style.display = 'none';
+            document.getElementById('opt-paynow').classList.remove('selected');
+            document.getElementById('opt-card').classList.remove('selected');
+            document.getElementById('radio-paynow').checked = false;
+            document.getElementById('radio-card').checked = false;
+        }
+
+        function switchTerminalSegment(modeKey) {
+            const uiPanelPaynow = document.getElementById('panel-paynow');
+            const uiPanelCard = document.getElementById('panel-card');
+            const uiBoxPaynow = document.getElementById('opt-paynow');
+            const uiBoxCard = document.getElementById('opt-card');
+
+            if (modeKey === 'paynow') {
+                uiPanelPaynow.style.display = 'block';
+                uiPanelCard.style.display = 'none';
+                uiBoxPaynow.classList.add('selected');
+                uiBoxCard.classList.remove('selected');
+                document.getElementById('radio-paynow').checked = true;
+            } else if (modeKey === 'card') {
+                uiPanelPaynow.style.display = 'none';
+                uiPanelCard.style.display = 'block';
+                uiBoxPaynow.classList.remove('selected');
+                uiBoxCard.classList.add('selected');
+                document.getElementById('radio-card').checked = true;
+            }
+            lucide.createIcons();
+        }
+
+        function executeMockFinalize() {
+            alert("Merchant Authorization Routing Complete. Thank you for choosing He Xiang Ji.");
+            
+            // Flush localized buffer state array safely
+            for (const key in SKU_MANIFEST) {
+                SKU_MANIFEST[key].quantity = 0;
+                document.getElementById(${key}-value).value = 0;
+            }
+            recompileInvoice();
+            retractGate();
+        }
+    </script>
+</body>
+</html>
